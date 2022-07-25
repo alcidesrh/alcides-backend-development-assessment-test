@@ -38,7 +38,7 @@ class Order
     #[Groups("orderList")]
     private Collection $parts;
 
-    #[ORM\OneToMany(mappedBy: 'orderRepair', targetEntity: Complaint::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'orderRepair', targetEntity: Complaint::class, cascade: ['remove'])]
     #[Groups("orderList")]
     private Collection $complaints;
 

@@ -22,7 +22,7 @@ class Customer
     #[Groups("orderList")]
     private ?string $name = null;
 
-    #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Order::class, orphanRemoval: true)]
+    #[ORM\OneToMany(mappedBy: 'customer', targetEntity: Order::class, cascade: ['remove'])]
     private Collection $orders;
 
     public function __construct()

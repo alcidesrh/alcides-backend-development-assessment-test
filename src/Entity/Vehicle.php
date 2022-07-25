@@ -39,7 +39,7 @@ class Vehicle
     #[Groups("vehicleList")]
     private Collection $parts;
 
-    #[ORM\OneToMany(mappedBy: 'vehicle', targetEntity: Order::class)]
+    #[ORM\OneToMany(mappedBy: 'vehicle', targetEntity: Order::class, cascade: ['remove'])]
     private Collection $orders;
 
     public function __construct()

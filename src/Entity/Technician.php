@@ -25,7 +25,7 @@ class Technician
     #[ORM\Column(length: 255)]
     private ?string $lastName = null;
 
-    #[ORM\OneToMany(mappedBy: 'vehicle', targetEntity: Order::class, cascade: ['remove'])]
+    #[ORM\OneToMany(mappedBy: 'technician', targetEntity: Order::class, cascade: ['remove'])]
     private Collection $orders;
 
     public function __construct()

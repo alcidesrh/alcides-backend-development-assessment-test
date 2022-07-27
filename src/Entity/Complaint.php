@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Symfony\Component\Serializer\Annotation\Groups;
 
-#[ApiResource]
+#[ApiResource(attributes: ["pagination_enabled" => false])]
 #[ORM\Entity(repositoryClass: ComplaintRepository::class)]
 class Complaint
 {
@@ -25,7 +25,7 @@ class Complaint
     private ?string $description = null;
 
     #[ORM\ManyToOne(inversedBy: 'complaints')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private ?Order $orderRepair = null;
 
     public function getId(): ?int
